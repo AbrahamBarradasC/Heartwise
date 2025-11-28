@@ -995,36 +995,57 @@ footer hr {
     transform: scale(1.02);
 }
 
-/* --- Ajuste para la Tabla INEGI en Celulares (Scroll Horizontal) --- */
-/* --- Corrección Definitiva para Tabla INEGI en Celular --- */
-@media (max-width: 768px) {
+/* --- CORRECCIÓN FINAL PARA MÓVILES --- */
+@media (max-width: 900px) {
+    /* 1. Esto arregla el desorden general: Pone el texto arriba y la imagen abajo */
+    .content-row {
+        flex-direction: column;
+    }
+    
+    /* Para la sección de metodología, mantiene el orden lógico */
+    .content-row.reverse {
+        flex-direction: column; 
+    }
+
+    /* 2. Arreglo limpio para la Tabla INEGI */
     .chart-container {
-        display: block; /* IMPORTANTE: Quitamos el flex para que no desordene */
-        overflow-x: scroll; /* Fuerza la barra de desplazamiento */
+        display: block; 
         width: 100%;
-        padding: 10px;
+        overflow-x: auto; /* Activa el desplazamiento lateral suave */
+        -webkit-overflow-scrolling: touch; /* Scroll fluido en iPhone */
         background: #fff;
-        /* Sombra interna para indicar que hay más contenido */
-        background-image: linear-gradient(to right, white, white), linear-gradient(to right, white, white), linear-gradient(to right, rgba(0,0,0,.25), rgba(255,255,255,0)), linear-gradient(to left, rgba(0,0,0,.25), rgba(255,255,255,0));
-        background-position: left center, right center, left center, right center;
-        background-repeat: no-repeat;
-        background-color: white;
-        background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
-        background-attachment: local, local, scroll, scroll;
+        padding: 10px;
+        border: 1px solid #eee;
+        /* Quitamos los degradados complejos que se veían feos */
     }
 
     .chart-container img {
-        /* Forzamos que la imagen sea ancha para que se lea bien */
-        min-width: 800px; 
+        min-width: 700px; /* Fuerza que la imagen sea ancha para leerse */
         height: auto;
-        max-width: none !important; /* Ignora el límite de la pantalla */
+        max-width: none !important; /* Ignora límites de pantalla */
+        margin: 0 auto;
+    }
+
+    /* Pequeña indicación visual de que se puede deslizar */
+    .visual-content::after {
+        content: "👆 Desliza la tabla para ver más ➡";
         display: block;
+        text-align: center;
+        font-size: 0.8em;
+        color: var(--color-primary);
+        margin-top: 5px;
+        font-weight: 600;
+    }
+
+    /* 3. Ajustes de espaciado */
+    .text-content, .visual-content {
+        width: 100%;
+        margin-bottom: 20px;
     }
     
-    /* Opcional: Ocultamos el mensaje de "Desliza" si estorbaba, 
-       la gente intuye el scroll si ve la imagen cortada */
-    .chart-container::after {
-        content: none; 
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
