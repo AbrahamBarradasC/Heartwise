@@ -1,0 +1,837 @@
+/* Paleta de Colores y Tipografía */
+:root {
+    /*--color-primary: #1E88E5; /* Azul medio, profesionalismo */
+    /*--color-secondary: #4CAF50; /* Verde, salud y bienestar */
+    /*--color-dark: #37474F; /* Azul oscuro para texto y fondo oscuro */
+    /*--color-light-bg: #F5F7FA; /* Fondo claro para secciones separadas */
+    /*--color-white: #ffffff;
+    --color-text: #444444;
+    --font-family: 'Poppins', sans-serif;
+    --padding-section: 60px 0;*/
+    /* CAMBIO PRINCIPAL: De Azul (#1E88E5) a Rojo Institucional/Corazón */
+    --color-primary: #C62828; /* Rojo fuerte, profesional y médico */
+    
+    /* CAMBIO SECUNDARIO: Mantenemos verde para "Salud/Normal", pero un tono más clínico */
+    --color-secondary: #2E7D32; /* Verde bosque (para contrastar con el rojo) */
+    
+    /* CAMBIO TEXTO: Un gris muy oscuro, casi negro, para máxima legibilidad */
+    --color-dark: #212121; 
+    
+    /* CAMBIO FONDO: De un tono azulado (#F5F7FA) a un blanco humo neutro */
+    --color-light-bg: #FAFAFA; 
+    
+    --color-white: #ffffff;
+    --color-text: #424242; /* Gris oscuro suave para párrafos */
+    --font-family: 'Poppins', sans-serif;
+    --padding-section: 60px 0;
+}
+
+/* Base y Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: var(--color-dark);
+    text-align: center;
+    font-weight: 700;
+}
+
+.white-text h2, .white-text p, .white-text a {
+    color: var(--color-white) !important;
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* La variable --padding-section es 60px. Necesitamos mucho más. */
+#problema {
+    /* CAMBIO CLAVE: Aumentar el padding superior para bajar el contenido. 
+       Los 160px del .hero + los 100px que sobresalen, requieren ~150px de ajuste. */
+    padding-top: 180px; 
+    /* El padding-bottom puede mantenerse o ajustarse si es necesario */
+    padding-bottom: var(--padding-section); 
+}
+
+.section-padding {
+    padding: var(--padding-section);
+}
+
+.light-bg {
+    background-color: var(--color-light-bg);
+}
+
+.dark-bg {
+    background-color: var(--color-dark);
+    padding: var(--padding-section);
+}
+
+/* --- Botones --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin: 5px;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #1565C0; /* Tono más oscuro */
+}
+
+.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-light-bg);
+    color: #1565C0;
+}
+
+.btn-secondary-light {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+}
+
+.btn-secondary-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary-dark {
+    background-color: transparent;
+    color: var(--color-dark);
+    border: 2px solid var(--color-dark);
+}
+
+.btn-secondary-dark:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/* --- ⚠️ Aviso Importante --- */
+.warning-banner {
+    background-color: #FFC107; /* Amarillo para advertencia */
+    color: var(--color-dark);
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-out;
+}
+
+
+
+/* --- 3.1. Encabezado y Navegación --- */
+header {
+    background-color: var(--color-white);
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    position: sticky;
+    top: 39px; /* Debajo del warning-banner */
+    z-index: 999;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.header-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.header-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+header .container {
+    display: flex;
+    /* CAMBIO CLAVE 1: Usar 'align-items: flex-start;' para asegurar que el menú quede arriba */
+    align-items: flex-start; 
+    flex-wrap: wrap;
+    /* Reducimos el justify-content para que el menú se extienda */
+    justify-content: space-between; 
+}
+
+/* Si el encabezado se oculta, el banner de aviso debe ocultarse también */
+.header-hidden + .warning-banner {
+    transform: translateY(-100%);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-primary);
+    /* Añadimos un margen inferior para separarlo del menú en vista móvil, pero ayuda a la estructura. */
+    margin-bottom: 10px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    /* CAMBIO CLAVE 3: Distribuye el espacio uniformemente entre los ítems */
+    justify-content: space-between; 
+    padding: 0; 
+}
+
+/* Ajuste para que los ítems puedan caber */
+nav ul li {
+    flex-shrink: 0; /* Asegura que el ítem no se encoja innecesariamente */
+    white-space: nowrap; /* Evita saltos de línea dentro del texto del menú */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+    display: inline-block;
+    /* Ajustamos el padding para que el fondo se vea como un cuadro */
+    padding: 8px 5px; 
+    margin: 0 5px; /* Reducimos el margen entre elementos */
+    font-weight: 500;
+    transition: all 0.3s; /* Transición para un efecto suave */
+    border-radius: 4px; /* Bordes redondeados para el cuadro */
+    font-size: 0.95em;
+}
+
+/* ESTILOS NUEVOS PARA EL EFECTO HOVER (el "cuadro") */
+nav ul li a:hover {
+    color: var(--color-primary); /* Cambia el color del texto */
+    background-color: #FFEBEE; /* Fondo sutil para el cuadro */
+    /* Opcional: añadir un borde para simular más el cuadro */
+    border: 1px solid #CFD8DC;
+    border-radius: 4px;
+}
+
+
+.header-actions {
+    display: flex;
+    /* Ajustamos el orden para que los botones queden debajo del menú */
+    width: 100%; 
+    margin-top: 10px;
+}
+
+/* Ocultar navegación en móvil por defecto */
+@media (max-width: 1024px) {
+    nav {
+        display: none;
+    }
+    header .container {
+        justify-content: center;
+        flex-direction: column;
+    }
+    .header-actions {
+        margin-top: 10px;
+    }
+}
+
+
+/* --- 3.1. Hero Section --- */
+.hero {
+    background-color: var(--color-primary);
+    padding: 80px 0 160px;
+    color: var(--color-white);
+    position: relative;
+}
+
+.hero .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    margin-right: 40px;
+}
+
+.hero-content h2 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    color: var(--color-white);
+    text-align: left;
+}
+
+.hero-content .subtitle {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+/* Estilo para el placeholder de imagen (simulando la app en un móvil) */
+/* --- Estilos para la Imagen del Hero (Lado Derecho) --- */
+.hero-image {
+    flex: 1;
+    text-align: center;
+    /* Centrar verticalmente si la imagen es pequeña */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    /* Esto asegura que la imagen no se salga de la pantalla */
+    max-width: 100%; 
+    height: auto; /* Mantiene la proporción para que no se estire */
+    
+    /* Opcional: Un límite de tamaño para que no se vea gigante en pantallas grandes */
+    max-height: 500px; 
+    
+    /* Opcional: Un efecto de sombra suave para que "flote" */
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    
+    /* Opcional: Animación suave al cargar */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animación simple de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Bloques Destacados Rápidos */
+.summary-blocks {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    position: absolute;
+    bottom: -100px; /* Sobresale de la sección hero */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.summary-blocks .block {
+    background-color: var(--color-white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    text-align: center;
+}
+
+.summary-blocks .block i {
+    font-size: 2.5em;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.summary-blocks .block h3 {
+    color: var(--color-dark);
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+/* Ajuste Hero para Móvil */
+@media (max-width: 768px) {
+    #problema {
+        padding-top: var(--padding-section);
+    }
+    .hero {
+        padding: 50px 0 200px;
+    }
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content, .hero-image {
+        margin: 0 0 30px 0;
+        max-width: 100%;
+    }
+    .hero-content h2 {
+        text-align: center;
+        font-size: 2em;
+    }
+    .summary-blocks {
+        flex-direction: column;
+        position: static;
+        transform: none;
+        margin-top: 30px;
+    }
+    .summary-blocks .block {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* --- Contenido General de Secciones (3.2, 3.3, 3.5) --- */
+.content-row {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.content-row .text-content,
+.content-row .visual-content {
+    flex: 1;
+}
+
+.content-row h3 {
+    font-size: 1.5em;
+    color: var(--color-primary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.content-row ul, .content-row ol {
+    margin-left: 20px;
+}
+
+/* Placeholder para Infografías y Videos */
+.visual-content [role="img"], .video-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #CFD8DC; /* Gris claro */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.video-placeholder {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.video-placeholder i {
+    margin-right: 10px;
+}
+
+.caption {
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+}
+
+/* 3.3. Solución (App Visuals) */
+.solution-grid {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.solution-grid .app-visuals {
+    flex: 1;
+    max-width: 400px;
+    margin-left: auto;
+}
+
+.solution-grid .app-description {
+    flex: 2;
+}
+
+.app-visuals [role="img"] {
+    height: 500px;
+    background-color: var(--color-primary);
+}
+
+
+/* 3.4. Evidencia Científica (Sección Oscura) */
+.dark-bg .content-row .visual-content [role="img"] {
+    background-color: #607D8B; /* Tono más claro en la sección oscura */
+}
+.dark-bg .content-row h3 {
+    color: var(--color-secondary); /* Resalta en verde */
+}
+
+/* 3.6. Videos y Demostraciones */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.video-card {
+    text-align: center;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 200px;
+    background-color: var(--color-dark);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-thumbnail i {
+    font-size: 3em;
+    color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    z-index: 1;
+    transition: transform 0.3s;
+}
+
+.video-thumbnail:hover i {
+    transform: scale(1.1);
+}
+
+.video-card h3 {
+    font-size: 1.3em;
+    color: var(--color-dark);
+}
+
+/* 3.7. Equipo y Colaboradores */
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.team-member {
+    text-align: center;
+    max-width: 200px;
+}
+
+.photo-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.team-member h4 {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.role {
+    font-size: 0.9em;
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.logos-grid [role="img"] {
+    width: 150px;
+    height: 70px;
+    background-color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+/* 3.8. Publicaciones y Reconocimientos */
+.recognition-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.recognition-list article {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+}
+
+.recognition-list article:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.recognition-list h3 {
+    font-size: 1.2em;
+    text-align: left;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+.recognition-list i {
+    color: var(--color-secondary);
+    margin-right: 10px;
+}
+
+/* 3.9. Recursos Educativos */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.resource-card {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.resource-card i {
+    font-size: 3em;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.resource-card h3 {
+    font-size: 1.3em;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+}
+
+/* 3.10. Preguntas Frecuentes (FAQ) */
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.faq-toggle {
+    display: none;
+}
+
+.faq-item label {
+    display: block;
+    padding: 15px;
+    background-color: var(--color-white);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-dark);
+    transition: background-color 0.2s;
+}
+
+.faq-item label:hover {
+    background-color: var(--color-light-bg);
+}
+
+.faq-content {
+    max-height: 0;
+    padding: 0 15px;
+    background-color: #fff;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    overflow: hidden;
+}
+
+.faq-toggle:checked + label + .faq-content {
+    max-height: 500px; /* Suficiente para el contenido */
+    padding: 15px;
+}
+
+/* 3.11. Contacto */
+.contact-grid {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h3 {
+    font-size: 1.5em;
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 30px;
+}
+
+.contact-info h3 {
+    color: var(--color-dark);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.contact-info a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.social-links a {
+    font-size: 1.8em;
+    color: var(--color-dark);
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--color-secondary);
+}
+
+
+/* --- 3.12. Pie de página (footer) --- */
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 40px 0 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #B0BEC5; /* Gris claro */
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-social {
+    margin-bottom: 15px;
+}
+
+.footer-social a {
+    font-size: 1.5em;
+    margin: 0 10px;
+    color: var(--color-white);
+}
+
+.credits {
+    font-size: 0.9em;
+    color: #B0BEC5;
+}
+
+
+/* --- Adaptabilidad para Móviles (Ajustes Adicionales) --- */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .section-padding {
+        padding: 40px 0;
+    }
+
+    .content-row {
+        flex-direction: column;
+    }
+
+    .content-row.reverse {
+        flex-direction: column-reverse;
+    }
+
+    .solution-grid {
+        flex-direction: column;
+    }
+    
+    .solution-grid .app-visuals {
+        margin: 0 auto;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        gap: 30px;
+    }
+
+    .contact-form, .contact-info {
+        max-width: 100%;
+        min-width: auto;
+    }
+
+    .footer-links a {
+        display: block;
+        margin: 10px 0;
+    }
+}
