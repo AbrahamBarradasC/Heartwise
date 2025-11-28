@@ -38,3 +38,30 @@ window.addEventListener('scroll', () => {
 
     lastScrollY = currentScrollY;
 });
+
+/* ==========================================
+   LÓGICA DE VIDEOS VIMEO
+   ========================================== */
+function loadVimeo(element) {
+    // 1. Obtenemos el ID del video desde el HTML
+    const videoId = element.getAttribute('data-vimeo-id');
+    
+    // 2. Verificamos que tenga ID
+    if (videoId) {
+        // 3. Creamos el código del iframe de Vimeo
+        // autoplay=1: se reproduce solo al cargar
+        // title=0, byline=0, portrait=0: oculta textos de vimeo para que se vea limpio
+        const iframe = `
+            <iframe src="https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0" 
+            width="100%" height="100%" frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        `;
+
+        // 4. Reemplazamos la imagen y el botón por el video real
+        element.innerHTML = iframe;
+        
+        // 5. Quitamos el evento onclick para que no recargue si dan clic de nuevo
+        element.onclick = null;
+        element.classList.add('playing');
+    }
+}

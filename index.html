@@ -118,9 +118,10 @@
                         </ul>
                     </div>
                     <div class="app-visuals">
-                        <div style="width:100%; height:100%; background:#eee; display:flex; align-items:center; justify-content:center;">
-                             <i class="fas fa-mobile-alt fa-3x"></i>
-                        </div>
+                        <video class="phone-video" autoplay loop muted playsinline>
+                            <source src="vid/app.mp4" type="video/mp4">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
                         <p class="caption">Recorrido visual por las pantallas de la aplicación.</p>
                     </div>
                 </div>
@@ -187,31 +188,39 @@
                 
                 <div class="video-grid">
                     <div class="video-card">
-                        <div class="video-thumbnail">
-                            <i class="fas fa-play-circle"></i>
-                            <img src="placeholder-video-institucional.jpg" alt="Video Institucional Heart Wise">
+                        <div class="video-thumbnail" data-vimeo-id="1141406688" onclick="loadVimeo(this)">
+                            <img src="img/fotograma_pitch.png" alt="Portada Video">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
                         </div>
-                        <h3>Video Institucional</h3>
-                        <p>Presenta el problema, la solución y el impacto del proyecto Heart Wise.</p>
+                        <h3>¿Qué es HeartWise?</h3>
+                        <p>Descubre cómo utilizamos la Inteligencia Artificial y datos sintéticos para salvar vidas jóvenes y democratizar la prevención.</p>
                     </div>
+
                     <div class="video-card">
-                        <div class="video-thumbnail">
-                            <i class="fas fa-play-circle"></i>
-                            <img src="placeholder-video-demo.jpg" alt="Video Demostrativo de la App">
+                        <div class="video-thumbnail" data-vimeo-id="1141406541" onclick="loadVimeo(this)">
+                            <img src="img/fotograma_homocisteina.png" alt="Portada Video">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
                         </div>
-                        <h3>Video Demostrativo de la App</h3>
-                        <p>Recorrido paso a paso del uso de la aplicación, desde el llenado de datos hasta los resultados.</p>
+                        <h3>¿Qué es la Homocisteína?</h3>
+                        <p>Descubre de forma sencilla, usando la analogía del "taller mecánico", cómo este residuo tóxico afecta tus arterias y cómo las vitaminas ayudan a reciclarlo.</p>
                     </div>
+
                     <div class="video-card">
-                        <div class="video-thumbnail">
-                            <i class="fas fa-play-circle"></i>
-                            <img src="placeholder-video-tecnico.jpg" alt="Conferencia de Metodología IA">
+                        <div class="video-thumbnail" data-vimeo-id="1141406731" onclick="loadVimeo(this)">
+                            <img src="img/fotograma_tour.png" alt="Portada Video">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
                         </div>
-                        <h3>Videos Técnicos</h3>
-                        <p>Fragmentos de presentaciones en congresos donde se expuso la metodología de IA.</p>
+                        <h3>Tour Guiado por la App</h3>
+                        <p>Recorrido paso a paso: desde la evaluación corporal y el módulo de presión arterial, hasta el análisis con IA y la interpretación del semáforo de riesgo.</p>
                     </div>
                 </div>
-                <p class="integration-note">Videos integrados desde YouTube o Vimeo (ejemplo).</p>
+                
             </div>
         </section>
 
@@ -256,6 +265,15 @@
                         <h4>Daniela Ortega Juárez</h4>
                         <p class="role">Autor</p>
                     </div>
+
+                    <div class="team-member">
+                        <div class="photo-placeholder">
+                            <img src="img/Mario.jfif" alt="Foto de Mario Pineda">
+                        </div>
+                        <h4>Mario Alfredo Pineda Domínguez</h4>
+                        <p class="role">Producción Audiovisual</p>
+                    </div>
+
                     <div class="team-member">
                         <div class="photo-placeholder">
                             <img src="img/Rafael.jfif" alt="Foto del Dr. Rafael Rivera">
