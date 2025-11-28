@@ -996,37 +996,35 @@ footer hr {
 }
 
 /* --- Ajuste para la Tabla INEGI en Celulares (Scroll Horizontal) --- */
+/* --- Corrección Definitiva para Tabla INEGI en Celular --- */
 @media (max-width: 768px) {
     .chart-container {
-        /* Permite que el contenido se desborde horizontalmente */
-        overflow-x: auto; 
-        /* Alinea la imagen a la izquierda para empezar a leer */
-        justify-content: flex-start; 
-        /* Opcional: Un borde sutil para indicar que es un contenedor separado */
-        border: 1px solid #e0e0e0;
+        display: block; /* IMPORTANTE: Quitamos el flex para que no desordene */
+        overflow-x: scroll; /* Fuerza la barra de desplazamiento */
+        width: 100%;
+        padding: 10px;
+        background: #fff;
+        /* Sombra interna para indicar que hay más contenido */
+        background-image: linear-gradient(to right, white, white), linear-gradient(to right, white, white), linear-gradient(to right, rgba(0,0,0,.25), rgba(255,255,255,0)), linear-gradient(to left, rgba(0,0,0,.25), rgba(255,255,255,0));
+        background-position: left center, right center, left center, right center;
+        background-repeat: no-repeat;
+        background-color: white;
+        background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
+        background-attachment: local, local, scroll, scroll;
     }
 
     .chart-container img {
-        /* IMPORTANTE: Quitamos la restricción de ancho */
-        width: auto; 
-        max-width: none; 
-        /* Forzamos un ancho mínimo para que el texto sea legible */
-        min-width: 600px; 
+        /* Forzamos que la imagen sea ancha para que se lea bien */
+        min-width: 800px; 
+        height: auto;
+        max-width: none !important; /* Ignora el límite de la pantalla */
+        display: block;
     }
     
-    /* Agregamos una indicación visual de que se puede deslizar */
+    /* Opcional: Ocultamos el mensaje de "Desliza" si estorbaba, 
+       la gente intuye el scroll si ve la imagen cortada */
     .chart-container::after {
-        content: '↔ Desliza para ver la tabla completa';
-        display: block;
-        position: absolute;
-        bottom: 5px;
-        right: 10px;
-        font-size: 0.7em;
-        color: #888;
-        background: rgba(255,255,255,0.8);
-        padding: 2px 5px;
-        border-radius: 4px;
-        pointer-events: none;
+        content: none; 
     }
 }
 
