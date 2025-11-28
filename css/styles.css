@@ -537,18 +537,29 @@ nav ul li a:hover {
     max-width: 200px;
 }
 
+/* Estilos para las fotos del equipo */
 .photo-placeholder {
     width: 150px;
     height: 150px;
-    background-color: var(--color-primary);
-    border-radius: 50%;
+    background-color: var(--color-light-bg); /* Color de fondo por si la imagen no carga */
+    border-radius: 50%; /* Esto hace el círculo */
     margin: 0 auto 10px;
+    /* Importante: oculta las esquinas cuadradas de la imagen */
+    overflow: hidden; 
+    border: 3px solid var(--color-primary); /* Opcional: Borde rojo elegante */
+    
+    /* Para centrar si usas íconos, pero no afecta a la imagen */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-white);
-    font-weight: 600;
-    overflow: hidden;
+}
+
+/* NUEVA REGLA: Esto hace que la foto se ajuste perfecta al círculo */
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen proporcionalmente para llenar el círculo */
+    object-position: center; /* Centra la cara */
 }
 
 .team-member h4 {
