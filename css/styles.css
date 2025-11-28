@@ -964,3 +964,426 @@ footer hr {
         padding-left: 0;
     }
 }
+
+/* --- Estilos para la Gráfica del INEGI --- */
+
+.chart-container {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave para resaltar */
+    border: 1px solid #eee;
+    
+    /* Para centrar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.chart-container img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción original para que se lea el texto */
+    max-height: 400px; /* Evita que sea demasiado alta si la pantalla es grande */
+    object-fit: contain; /* Asegura que la tabla salga completa sin recortes */
+    border-radius: 5px;
+    transition: transform 0.3s ease; /* Efecto suave al pasar el mouse */
+}
+
+/* Efecto Zoom sutil para invitar a leer */
+.chart-container img:hover {
+    transform: scale(1.02);
+}
+
+/* --- Ajuste para la Tabla INEGI en Celulares (Scroll Horizontal) --- */
+@media (max-width: 768px) {
+    .chart-container {
+        /* Permite que el contenido se desborde horizontalmente */
+        overflow-x: auto; 
+        /* Alinea la imagen a la izquierda para empezar a leer */
+        justify-content: flex-start; 
+        /* Opcional: Un borde sutil para indicar que es un contenedor separado */
+        border: 1px solid #e0e0e0;
+    }
+
+    .chart-container img {
+        /* IMPORTANTE: Quitamos la restricción de ancho */
+        width: auto; 
+        max-width: none; 
+        /* Forzamos un ancho mínimo para que el texto sea legible */
+        min-width: 600px; 
+    }
+    
+    /* Agregamos una indicación visual de que se puede deslizar */
+    .chart-container::after {
+        content: '↔ Desliza para ver la tabla completa';
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        font-size: 0.7em;
+        color: #888;
+        background: rgba(255,255,255,0.8);
+        padding: 2px 5px;
+        border-radius: 4px;
+        pointer-events: none;
+    }
+}
+
+/* --- Estilos para Datos del Problema (Tarjetas) --- */
+.problem-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Se adaptan al espacio */
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stat-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--color-primary); /* Línea roja a la izquierda */
+    text-align: left;
+}
+
+.stat-card i {
+    color: var(--color-primary);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.stat-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 1em;
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+.stat-card p {
+    font-size: 0.9em;
+    margin: 0;
+    line-height: 1.4;
+    color: #666;
+}
+
+/* Ajuste para que la tabla INEGI no se pegue en pantallas chicas */
+@media (max-width: 900px) {
+    .problem-stats-grid {
+        margin-bottom: 30px; /* Espacio antes de la imagen en móvil */
+    }
+}
+
+/* --- Estilos para la Sección de Evidencia Mejorada --- */
+
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.method-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+}
+
+.method-card h3 {
+    color: var(--color-secondary); /* Verde para resaltar títulos */
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.highlight-box {
+    background-color: rgba(198, 40, 40, 0.2); /* Fondo rojo suave */
+    border-left: 4px solid var(--color-primary);
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.variables-list {
+    list-style: none;
+    padding: 0;
+}
+
+.variables-list li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.variables-list strong {
+    color: #FFCDD2; /* Rojo muy claro para etiquetas */
+}
+
+/* --- Diagrama de Flujo (Pipeline) --- */
+.center-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pipeline-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio para que las cajas crezcan hacia abajo */
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pipeline-step {
+    background-color: #fff;
+    color: var(--color-dark);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.pipeline-step:hover {
+    transform: translateY(-5px);
+}
+
+.step-icon {
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.pipeline-step h4 {
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+.pipeline-step p {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.4;
+}
+
+.pipeline-arrow {
+    align-self: center; /* Centra la flecha verticalmente */
+    font-size: 1.5em;
+    color: rgba(255,255,255,0.5);
+    margin: 0 10px;
+}
+
+/* Responsive para el Pipeline */
+@media (max-width: 900px) {
+    .pipeline-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pipeline-arrow {
+        transform: rotate(90deg); /* Flecha hacia abajo en móvil */
+        margin: 10px 0;
+    }
+    
+    .pipeline-step {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+/* --- Estilos para Sección Resultados --- */
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.result-column h3 {
+    text-align: center; /* Títulos centrados */
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    color: var(--color-primary);
+}
+
+/* --- Gráficas de Barra (Sensibilidad) --- */
+.chart-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.bar-group {
+    margin-bottom: 20px;
+}
+
+.bar-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.95em;
+    color: var(--color-dark);
+}
+
+.progress-bg {
+    width: 100%;
+    height: 12px;
+    background-color: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1s ease-out;
+}
+
+.progress-fill.low {
+    background-color: #9E9E9E; /* Gris para modelo malo */
+}
+
+.progress-fill.high {
+    background-color: var(--color-secondary); /* Verde para éxito */
+}
+
+.bar-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    color: #777;
+}
+
+/* Métricas Resumidas */
+.metrics-summary {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(198, 40, 40, 0.05); /* Rojo muy suave */
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.metric-item {
+    text-align: center;
+}
+
+.metric-item strong {
+    display: block;
+    font-size: 1.5em;
+    color: var(--color-primary);
+}
+
+.metric-item span {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --- Estadísticas Circulares (Usuarios) --- */
+.stats-grid-circles {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.circle-stat {
+    text-align: center;
+    width: 100px;
+}
+
+.circle-outer {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: conic-gradient(var(--color-primary) 0% 95%, #eee 95% 100%); /* Simula gráfica circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.circle-inner {
+    width: 75px;
+    height: 75px;
+    background-color: var(--color-light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--color-dark);
+}
+
+.circle-stat p {
+    font-size: 0.85em;
+    line-height: 1.2;
+    color: #555;
+}
+
+.quote-box {
+    background-color: #fff;
+    border-left: 4px solid var(--color-secondary);
+    padding: 15px;
+    font-style: italic;
+    color: #555;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- Estilos para Logotipos de Instituciones --- */
+.logos-grid {
+    display: flex;
+    justify-content: center; /* Los centra horizontalmente */
+    align-items: center;     /* Los alinea verticalmente */
+    gap: 60px;               /* Espacio generoso entre cada logo */
+    flex-wrap: wrap;         /* Si la pantalla es chica, bajan a la siguiente línea */
+    margin-top: 30px;
+}
+
+.institution-logo {
+    display: block;
+    width: 180px;  /* Ancho base */
+    height: 100px; /* Altura fija para que todos se vean alineados */
+    /* Flex para centrar la imagen dentro de su caja */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Opcional: Filtro para que se vean en escala de grises y a color al pasar el mouse */
+    filter: grayscale(100%); 
+    opacity: 0.8;
+}
+
+.institution-logo:hover {
+    transform: scale(1.1); /* Efecto zoom */
+    filter: grayscale(0%); /* Vuelven a color */
+    opacity: 1;
+}
+
+.institution-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Asegura que el logo no se deforme ni se corte */
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .logos-grid {
+        gap: 30px;
+    }
+    .institution-logo {
+        width: 120px; /* Un poco más chicos en celular */
+        filter: none; /* En celular siempre a color */
+        opacity: 1;
+    }
+}

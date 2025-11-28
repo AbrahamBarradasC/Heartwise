@@ -33,7 +33,7 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="#" class="btn btn-primary">Probar la App</a>
+                <a href="https://github.com/AbrahamBarradasC/Heartwise/releases/download/v4.0/heartwise-installer-v1.0.0-release.apk" class="btn btn-primary" download>Probar la App</a>
                 <a href="#" class="btn btn-secondary">Descargar Folleto</a>
             </div>
         </div>
@@ -79,17 +79,33 @@
                 <div class="content-row">
                     <div class="text-content">
                         <p>Las <strong>enfermedades cardiovasculares (ECV)</strong> son la principal causa de muerte a nivel global y en México superan las 200,000 muertes al año, con un aumento preocupante en jóvenes de 15 a 35 años.</p>
-                        <h3>El Papel de la Homocisteína</h3>
-                        <p>La <strong>homocisteína</strong> es un biomarcador clave. Sin embargo, su prueba de laboratorio es costosa (hasta $1,267 MXN) y los modelos de IA tradicionales fallan al detectar riesgos debido al severo desbalance de datos clínicos en esta población.</p>
-                        <div class="video-placeholder">
-                            <i class="fas fa-video"></i> Video: ¿Por qué los jóvenes están en riesgo?
+                        <h3>El Reto de la Detección</h3>
+                        <p>A pesar de la alta incidencia, la prevención en jóvenes es limitada por dos grandes barreras: el <strong>alto costo</strong> de las pruebas de laboratorio especializadas (como la homocisteína) y la falta de síntomas visibles en etapas tempranas.</p>
+                        
+                        <div class="problem-stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-search-dollar"></i>
+                                <h4>Costo Elevado</h4>
+                                <p>Una prueba de homocisteína cuesta entre <strong>$779 y $1,267 MXN</strong>, haciéndola inaccesible para tamizaje masivo.</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-users-slash"></i>
+                                <h4>Desbalance Crítico</h4>
+                                <p>En jóvenes, por cada <strong>14 sanos hay 1 en riesgo</strong> no detectado, lo que confunde a los modelos tradicionales.</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-heart-broken"></i>
+                                <h4>Mortalidad</h4>
+                                <p>Causa <strong>#1 de muerte</strong> en México (INEGI, 2024), superando las 100,000 defunciones semestrales.</p>
+                            </div>
                         </div>
+
                     </div>
                     <div class="visual-content">
-                        <div style="width:100%; height:100%; background:#ddd; display:flex; align-items:center; justify-content:center;">
-                             <i class="fas fa-chart-bar fa-3x"></i>
+                        <div class="chart-container">
+                            <img src="img/inegi.png" alt="Tabla INEGI 2024 Principales Causas de Muerte">
                         </div>
-                        <p class="caption">Datos Clave y Epidemiología del riesgo cardiovascular en jóvenes.</p>
+                        <p class="caption">Fuente: INEGI (Enero-Junio 2024). Las enfermedades del corazón persisten como la causa principal de defunción.</p>
                     </div>
                 </div>
             </div>
@@ -182,23 +198,54 @@
 
         <section id="evidencia" class="section-padding dark-bg">
             <div class="container">
-                <h2 class="white-text">Metodología y Desarrollo</h2>
-                <p class="section-description white-text">Detalles técnicos del estudio validado en ExpoCiencias Nacional 2025.</p>
+                <h2 class="white-text">Evidencia Científica y Metodología</h2>
+                <p class="section-description white-text">Un enfoque híbrido validado para superar el desbalance de datos clínicos en jóvenes.</p>
                 
-                <div class="content-row reverse">
-                    <div class="text-content white-text">
-                        <h3>Diseño del Estudio</h3>
-                        <p>Se trabajó con una cohorte de 348 jóvenes universitarios mexicanos (18-19 años), utilizando variables <strong>antropométricas, hematológicas y de presión arterial</strong>. El principal desafío fue el <strong>desbalance de clases</strong> (relación 14:1).</p>
-                        
-                        <h3>Innovación en IA</h3>
-                        <p>La metodología incorporó <strong>CTGAN</strong> (para generar datos sintéticos y balancear la muestra), <strong>aprendizaje sensible al costo</strong> para penalizar falsos negativos, y el uso de <strong>árboles destilados</strong> para asegurar la interpretabilidad.</p>
-                    </div>
-                    <div class="visual-content">
-                        <div style="width:100%; height:100%; background:#555; display:flex; align-items:center; justify-content:center; color:white;">
-                             <i class="fas fa-project-diagram fa-3x"></i>
+                <div class="methodology-grid">
+                    <div class="method-card">
+                        <h3><i class="fas fa-users"></i> Diseño del Estudio</h3>
+                        <p>Se realizó un estudio experimental con una cohorte de <strong>348 jóvenes universitarios mexicanos</strong> (18-19 años), estratificada por sexo. Se siguieron protocolos éticos estrictos para la recolección de muestras.</p>
+                        <div class="highlight-box">
+                            <strong>El Reto del Desbalance:</strong>
+                            <p>En esta población, la relación es de <strong>14:1</strong> (14 sanos por cada 1 en riesgo), lo que hace que los modelos tradicionales fallen (sensibilidad 0-20%).</p>
                         </div>
-                        <p class="caption white-text">Diagrama de Flujo de la Arquitectura del Modelo de IA Híbrida.</p>
                     </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-vials"></i> Variables Analizadas</h3>
+                        <ul class="variables-list">
+                            <li><strong>Antropométricas:</strong> IMC, Grasa Visceral, % Grasa Corporal, Masa Muscular.</li>
+                            <li><strong>Clínicas:</strong> Presión Arterial (Sistólica/Diastólica) como variable discriminante clave.</li>
+                            <li><strong>Hematológicas:</strong> Hemoglobina, Plaquetas, Colesterol Total, Triglicéridos, HDL, LDL.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="white-text center-title" style="margin-top: 50px;">Arquitectura del Modelo Híbrido</h3>
+                <div class="pipeline-container">
+                    <div class="pipeline-step">
+                        <div class="step-icon"><i class="fas fa-balance-scale"></i></div>
+                        <h4>1. Balanceo (CTGAN)</h4>
+                        <p>Uso de redes generativas <strong>CTGAN</strong> para crear datos sintéticos de alta calidad, equilibrando la clase minoritaria (riesgo).</p>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+                    
+                    <div class="pipeline-step">
+                        <div class="step-icon"><i class="fas fa-brain"></i></div>
+                        <h4>2. Modelo Robusto</h4>
+                        <p>Entrenamiento de un <strong>Random Forest</strong> con aprendizaje sensible al costo (penalización de falsos negativos).</p>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+
+                    <div class="pipeline-step">
+                        <div class="step-icon"><i class="fas fa-tree"></i></div>
+                        <h4>3. Destilación (dDT)</h4>
+                        <p>Transformación del modelo complejo a <strong>Árboles Destilados</strong> explicables ("Caja Blanca") para uso clínico.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-secondary-light"><i class="fas fa-file-alt"></i> Ver Paper Completo (Springer)</a>
                 </div>
             </div>
         </section>
@@ -206,25 +253,82 @@
         <section id="resultados" class="section-padding light-bg">
             <div class="container">
                 <h2>Resultados y Validación</h2>
-                <div class="content-row">
-                    <div class="visual-content">
-                        <div style="width:100%; height:100%; background:#ddd; display:flex; align-items:center; justify-content:center;">
-                             <i class="fas fa-chart-line fa-3x"></i>
-                        </div>
-                        <p class="caption">Comparativa de Sensibilidad y Métricas Clave.</p>
-                    </div>
-                    <div class="text-content">
-                        <h3>Desempeño del Modelo</h3>
-                        <p>El modelo Heart Wise ha demostrado una <strong>sensibilidad final alcanzada entre 70-75%</strong>, lo cual representa una mejora drástica en comparación con los modelos base sin corrección (0-20%).</p>
+                <p class="section-description">Validación técnica del modelo de IA y pruebas de usabilidad con usuarios reales.</p>
+                
+                <div class="results-grid">
+                    
+                    <div class="result-column">
+                        <h3><i class="fas fa-brain"></i> Rendimiento del Modelo</h3>
+                        <p>Comparativa de <strong>Sensibilidad</strong> (Capacidad de detectar casos de riesgo) entre modelos tradicionales y Heart Wise.</p>
+                        
+                        <div class="chart-box">
+                            <div class="bar-group">
+                                <div class="bar-label">
+                                    <span>Modelos Tradicionales</span>
+                                    <span>20%</span>
+                                </div>
+                                <div class="progress-bg">
+                                    <div class="progress-fill low" style="width: 20%;"></div>
+                                </div>
+                                <small>Fallo crítico por desbalance de datos.</small>
+                            </div>
 
-                        <h3>Validación de Usuarios</h3>
-                        <p>Las pruebas de usabilidad (UA) confirmaron una <strong>alta percepción de utilidad (97% en funciones automáticas)</strong> y <strong>confianza</strong> (93.9%) en la aplicación y en la IA por parte de los usuarios.</p>
-                        
-                        <h3>Impacto Social</h3>
-                        <p>El proyecto contribuye a los ODS 3, 9 y 10, democratizando el acceso a diagnósticos preventivos.</p>
-                        
-                        <a href="#videos" class="btn btn-secondary-dark">Ver Documentación</a>
+                            <div class="bar-group">
+                                <div class="bar-label">
+                                    <strong>Heart Wise (Híbrido)</strong>
+                                    <strong>75%</strong>
+                                </div>
+                                <div class="progress-bg">
+                                    <div class="progress-fill high" style="width: 75%;"></div>
+                                </div>
+                                <small>Mejora drástica usando CTGAN + Costos.</small>
+                            </div>
+                        </div>
+
+                        <div class="metrics-summary">
+                            <div class="metric-item">
+                                <strong>65%</strong>
+                                <span>Especificidad</span>
+                            </div>
+                            <div class="metric-item">
+                                <strong>RF + dDT</strong>
+                                <span>Arquitectura</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="result-column">
+                        <h3><i class="fas fa-users"></i> Aceptación de Usuarios</h3>
+                        <p>Resultados de encuestas de usabilidad (UA) en jóvenes de 20-30 años.</p>
+                        
+                        <div class="stats-grid-circles">
+                            <div class="circle-stat">
+                                <div class="circle-outer">
+                                    <div class="circle-inner">97%</div>
+                                </div>
+                                <p>Facilidad de Uso</p>
+                            </div>
+
+                            <div class="circle-stat">
+                                <div class="circle-outer">
+                                    <div class="circle-inner">94%</div>
+                                </div>
+                                <p>Confianza y Profesionalismo</p>
+                            </div>
+
+                            <div class="circle-stat">
+                                <div class="circle-outer">
+                                    <div class="circle-inner">100%</div>
+                                </div>
+                                <p>Calificación Visual (4/5 y 5/5)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quote-box">
+                            <p><em>"El 84.8% validó el uso de IA como una característica muy útil y necesaria."</em></p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -343,7 +447,25 @@
                         <p class="role">Asesor</p>
                     </div>
                 </div>
+
+                <div class="institutions-block" style="margin-top: 60px; text-align: center;">
+                    <h3>Instituciones Participantes</h3>
+                    <div class="logos-grid">
+                        <a href="https://www.veracruz.tecnm.mx/" target="_blank" class="institution-logo" title="TecNM - Instituto Tecnológico de Veracruz">
+                            <img src="img/logo-itver.png" alt="Logo TecNM Veracruz">
+                        </a>
+
+                        <a href="https://www.ujat.mx/" target="_blank" class="institution-logo" title="Universidad Juárez Autónoma de Tabasco">
+                            <img src="img/logo-ujat.png" alt="Logo UJAT">
+                        </a>
+
+                        <div class="institution-logo" title="Comunidad de Ingeniería en Sistemas">
+                            <img src="img/logo-cis.jpeg" alt="Logo CIS">
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </section>
 
         <section id="publicaciones" class="section-padding">
