@@ -98,36 +98,84 @@
         <section id="solucion" class="section-padding">
             <div class="container">
                 <h2>La Solución: Heart Wise</h2>
-                <p class="section-description">Una aplicación móvil que utiliza inteligencia artificial híbrida para predecir el riesgo cardiovascular y ofrecer recomendaciones personalizadas.</p>
+                <p class="section-description">Una aplicación móvil integral que combina captura de datos clínicos, análisis de IA y recomendaciones personalizadas.</p>
                 
-                <div class="solution-grid">
-                    <div class="app-description">
-                        <h3>¿Cómo Funciona para el Usuario?</h3>
-                        <ol>
-                            <li>El usuario introduce datos de bajo costo (antropometría, presión arterial, etc.).</li>
-                            <li>El sistema analiza la información con un modelo entrenado de IA (RF + dDT).</li>
-                            <li>La app muestra un <strong>semáforo de riesgo</strong> (Normal o Riesgo) y evalúa la presión arterial.</li>
-                            <li>Se ofrecen recomendaciones generales y se sugiere acudir al médico en caso de alerta.</li>
-                        </ol>
-                        
-                        <h3>Ventajas Principales</h3>
-                        <ul>
-                            <li>Uso de <strong>IA híbrida</strong> (Random Forest + árboles destilados) y <strong>CTGAN</strong>.</li>
-                            <li><strong>Interpretabilidad</strong> de resultados para el médico y el usuario ("caja blanca").</li>
-                            <li>Diseñada específicamente para la <strong>población joven mexicana</strong>.</li>
-                        </ul>
-                    </div>
-                    <div class="app-visuals">
-                        <video class="phone-video" autoplay loop muted playsinline>
-                            <source src="vid/app.mp4" type="video/mp4">
-                            Tu navegador no soporta videos HTML5.
-                        </video>
-                        <p class="caption">Recorrido visual por las pantallas de la aplicación.</p>
+                <div class="steps-container">
+                    <h3>¿Cómo funciona para el usuario?</h3>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <span class="step-number">1</span>
+                            <p><strong>Ingreso de Datos:</strong> El usuario introduce variables sencillas como peso, talla y presión arterial.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">2</span>
+                            <p><strong>Análisis IA:</strong> El sistema procesa la información con un modelo entrenado (Random Forest + Árboles Destilados).</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">3</span>
+                            <p><strong>Semáforo de Riesgo:</strong> La app muestra el resultado visualmente: Bajo (Verde), Medio (Amarillo) o Alto (Rojo).</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">4</span>
+                            <p><strong>Acción:</strong> Se ofrecen recomendaciones y, en caso de riesgo elevado, la sugerencia inmediata de acudir al médico.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="video-tour">
-                    <a href="#videos" class="btn btn-primary"><i class="fas fa-video"></i> Ver Tour Guiado por la App</a>
+                <div class="solution-split">
+                    <div class="advantages-column">
+                        <h3>Ventajas Principales</h3>
+                        <ul class="advantages-list">
+                            <li>
+                                <div class="icon-box"><i class="fas fa-microchip"></i></div>
+                                <div class="advantage-content">
+                                    <h4>IA Híbrida y Balanceo de Datos</h4>
+                                    <p>Integra la alta potencia predictiva del algoritmo <strong>Random Forest</strong> con la claridad de los <strong>Árboles Destilados (dDT)</strong>. Además, utiliza tecnología <strong>CTGAN</strong> para generar datos sintéticos, resolviendo el problema crítico del desbalance de clases típico en la población joven.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="fas fa-file-medical-alt"></i></div>
+                                <div class="advantage-content">
+                                    <h4>Interpretabilidad Clínica</h4>
+                                    <p>A diferencia de los modelos de "caja negra", Heart Wise ofrece transparencia. El sistema detalla qué variables específicas (como IMC, Grasa Visceral o Presión Arterial) detonaron la alerta, facilitando la validación médica.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="fas fa-users"></i></div>
+                                <div class="advantage-content">
+                                    <h4>Enfoque Regional y Accesible</h4>
+                                    <p>Diseñada específicamente para jóvenes mexicanos. Elimina la barrera económica de la prueba de laboratorio de homocisteína, democratizando el acceso a un tamizaje preventivo gratuito.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="video-column">
+                        <div class="phone-frame">
+                            <video autoplay loop muted playsinline>
+                                <source src="vid/app.mp4" type="video/mp4">
+                                Tu navegador no soporta videos HTML5.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="app-visuals-gallery">
+                    <h3>Galería de la App</h3>
+                    <div class="phone-grid">
+                        <div class="phone-screen">
+                            <img src="img/pantalla-inicio.jpeg" alt="Pantalla de Inicio">
+                            <span class="screen-caption">Inicio</span>
+                        </div>
+                        <div class="phone-screen">
+                            <img src="img/pantalla-test.jpeg" alt="Llenado del Test">
+                            <span class="screen-caption">Evaluación</span>
+                        </div>
+                        <div class="phone-screen">
+                            <img src="img/pantalla-resultados.jpeg" alt="Semáforo de Resultados">
+                            <span class="screen-caption">Resultados</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -220,7 +268,6 @@
                         <p>Recorrido paso a paso: desde la evaluación corporal y el módulo de presión arterial, hasta el análisis con IA y la interpretación del semáforo de riesgo.</p>
                     </div>
                 </div>
-                
             </div>
         </section>
 
@@ -296,10 +343,6 @@
                         <p class="role">Asesor</p>
                     </div>
                 </div>
-                
-                <h3>Instituciones Participantes</h3>
-                <div class="logos-grid">
-                    </div>
             </div>
         </section>
 
@@ -426,18 +469,30 @@
 
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="#">Aviso de Privacidad</a>
-                <a href="#">Términos de Uso</a>
-                <a href="#faq">Preguntas Frecuentes</a>
-                <a href="#contacto">Contacto</a>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Heart Wise</h4>
+                    <p class="credits">Proyecto de investigación desarrollado en el <strong>Instituto Tecnológico de Veracruz</strong> por la Comunidad de Ingeniería en Sistemas (CIS), 2025.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Enlaces Rápidos</h4>
+                    <div class="footer-links">
+                        <a href="#">Aviso de Privacidad</a>
+                        <a href="#">Términos de Uso</a>
+                        <a href="#contacto">Contacto</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-social">
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="ResearchGate"><i class="fas fa-flask"></i></a>
-            </div>
-            <p class="credits">© 2025 Heart Wise Project. Desarrollado por la Comunidad de Ingeniería en Sistemas (CIS) - TecNM Veracruz.</p>
+            <hr>
+            <p class="copyright">© 2025 Heart Wise Project. Todos los derechos reservados.</p>
         </div>
     </footer>
 

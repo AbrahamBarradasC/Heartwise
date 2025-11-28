@@ -1,25 +1,13 @@
 /* Paleta de Colores y Tipografía */
 :root {
-    /*--color-primary: #1E88E5; /* Azul medio, profesionalismo */
-    /*--color-secondary: #4CAF50; /* Verde, salud y bienestar */
-    /*--color-dark: #37474F; /* Azul oscuro para texto y fondo oscuro */
-    /*--color-light-bg: #F5F7FA; /* Fondo claro para secciones separadas */
-    /*--color-white: #ffffff;
-    --color-text: #444444;
-    --font-family: 'Poppins', sans-serif;
-    --padding-section: 60px 0;*/
     /* CAMBIO PRINCIPAL: De Azul (#1E88E5) a Rojo Institucional/Corazón */
     --color-primary: #C62828; /* Rojo fuerte, profesional y médico */
-    
     /* CAMBIO SECUNDARIO: Mantenemos verde para "Salud/Normal", pero un tono más clínico */
     --color-secondary: #2E7D32; /* Verde bosque (para contrastar con el rojo) */
-    
     /* CAMBIO TEXTO: Un gris muy oscuro, casi negro, para máxima legibilidad */
     --color-dark: #212121; 
-    
     /* CAMBIO FONDO: De un tono azulado (#F5F7FA) a un blanco humo neutro */
     --color-light-bg: #FAFAFA; 
-    
     --color-white: #ffffff;
     --color-text: #424242; /* Gris oscuro suave para párrafos */
     --font-family: 'Poppins', sans-serif;
@@ -55,6 +43,12 @@ h2 {
     font-weight: 700;
 }
 
+h3 {
+    color: var(--color-primary);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
 .white-text h2, .white-text p, .white-text a {
     color: var(--color-white) !important;
 }
@@ -66,12 +60,9 @@ h2 {
     color: #666;
 }
 
-/* La variable --padding-section es 60px. Necesitamos mucho más. */
+/* Ajuste de Separación para el Contenido Principal */
 #problema {
-    /* CAMBIO CLAVE: Aumentar el padding superior para bajar el contenido. 
-       Los 160px del .hero + los 100px que sobresalen, requieren ~150px de ajuste. */
     padding-top: 180px; 
-    /* El padding-bottom puede mantenerse o ajustarse si es necesario */
     padding-bottom: var(--padding-section); 
 }
 
@@ -155,8 +146,6 @@ h2 {
     transition: transform 0.3s ease-out;
 }
 
-
-
 /* --- 3.1. Encabezado y Navegación --- */
 header {
     background-color: var(--color-white);
@@ -180,14 +169,11 @@ header {
 
 header .container {
     display: flex;
-    /* CAMBIO CLAVE 1: Usar 'align-items: flex-start;' para asegurar que el menú quede arriba */
     align-items: flex-start; 
     flex-wrap: wrap;
-    /* Reducimos el justify-content para que el menú se extienda */
     justify-content: space-between; 
 }
 
-/* Si el encabezado se oculta, el banner de aviso debe ocultarse también */
 .header-hidden + .warning-banner {
     transform: translateY(-100%);
 }
@@ -196,56 +182,47 @@ header .container {
     font-size: 1.5em;
     font-weight: 700;
     color: var(--color-primary);
-    /* Añadimos un margen inferior para separarlo del menú en vista móvil, pero ayuda a la estructura. */
     margin-bottom: 10px;
 }
-
 
 nav ul {
     list-style: none;
     display: flex;
-    /* CAMBIO CLAVE 3: Distribuye el espacio uniformemente entre los ítems */
     justify-content: space-between; 
     padding: 0; 
 }
 
-/* Ajuste para que los ítems puedan caber */
 nav ul li {
-    flex-shrink: 0; /* Asegura que el ítem no se encoja innecesariamente */
-    white-space: nowrap; /* Evita saltos de línea dentro del texto del menú */
+    flex-shrink: 0; 
+    white-space: nowrap; 
 }
 
 nav ul li a {
     text-decoration: none;
     color: var(--color-text);
     display: inline-block;
-    /* Ajustamos el padding para que el fondo se vea como un cuadro */
     padding: 8px 5px; 
-    margin: 0 5px; /* Reducimos el margen entre elementos */
+    margin: 0 5px; 
     font-weight: 500;
-    transition: all 0.3s; /* Transición para un efecto suave */
-    border-radius: 4px; /* Bordes redondeados para el cuadro */
+    transition: all 0.3s; 
+    border-radius: 4px; 
     font-size: 0.95em;
 }
 
-/* ESTILOS NUEVOS PARA EL EFECTO HOVER (el "cuadro") */
+/* Estilos Hover Menú */
 nav ul li a:hover {
-    color: var(--color-primary); /* Cambia el color del texto */
-    background-color: #FFEBEE; /* Fondo sutil para el cuadro */
-    /* Opcional: añadir un borde para simular más el cuadro */
-    border: 1px solid #CFD8DC;
+    color: var(--color-primary); 
+    background-color: #FFEBEE; 
     border-radius: 4px;
 }
 
-
 .header-actions {
     display: flex;
-    /* Ajustamos el orden para que los botones queden debajo del menú */
     width: 100%; 
     margin-top: 10px;
 }
 
-/* Ocultar navegación en móvil por defecto */
+/* Ocultar navegación en móvil */
 @media (max-width: 1024px) {
     nav {
         display: none;
@@ -296,35 +273,19 @@ nav ul li a:hover {
 .hero-image {
     flex: 1;
     text-align: center;
-}
-
-/* Estilo para el placeholder de imagen (simulando la app en un móvil) */
-/* --- Estilos para la Imagen del Hero (Lado Derecho) --- */
-.hero-image {
-    flex: 1;
-    text-align: center;
-    /* Centrar verticalmente si la imagen es pequeña */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero-image img {
-    /* Esto asegura que la imagen no se salga de la pantalla */
     max-width: 100%; 
-    height: auto; /* Mantiene la proporción para que no se estire */
-    
-    /* Opcional: Un límite de tamaño para que no se vea gigante en pantallas grandes */
+    height: auto; 
     max-height: 500px; 
-    
-    /* Opcional: Un efecto de sombra suave para que "flote" */
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-    
-    /* Opcional: Animación suave al cargar */
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Animación simple de aparición */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -337,7 +298,7 @@ nav ul li a:hover {
     justify-content: space-between;
     gap: 20px;
     position: absolute;
-    bottom: -100px; /* Sobresale de la sección hero */
+    bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -395,7 +356,7 @@ nav ul li a:hover {
 }
 
 
-/* --- Contenido General de Secciones (3.2, 3.3, 3.5) --- */
+/* --- Contenido General de Secciones --- */
 .content-row {
     display: flex;
     gap: 40px;
@@ -408,22 +369,11 @@ nav ul li a:hover {
     flex: 1;
 }
 
-.content-row h3 {
-    font-size: 1.5em;
-    color: var(--color-primary);
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.content-row ul, .content-row ol {
-    margin-left: 20px;
-}
-
 /* Placeholder para Infografías y Videos */
 .visual-content [role="img"], .video-placeholder {
     width: 100%;
     height: 300px;
-    background-color: #CFD8DC; /* Gris claro */
+    background-color: #CFD8DC;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -450,35 +400,186 @@ nav ul li a:hover {
     text-align: center;
 }
 
-/* 3.3. Solución (App Visuals) */
-.solution-grid {
+
+/* --- 3.3. ESTILOS SECCIÓN SOLUCIÓN (NUEVO DISEÑO) --- */
+
+.solution-split {
     display: flex;
-    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.advantages-column {
+    flex: 1;
+}
+
+.video-column {
+    flex: 0 0 320px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Pasos numerados */
+.steps-list {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.step-item {
+    display: flex;
     align-items: flex-start;
 }
 
-.solution-grid .app-visuals {
-    flex: 1;
-    max-width: 400px;
-    margin-left: auto;
-}
-
-.solution-grid .app-description {
-    flex: 2;
-}
-
-.app-visuals [role="img"] {
-    height: 500px;
+.step-number {
     background-color: var(--color-primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* Ventajas (Lista Mejorada) */
+.advantages-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.advantages-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--color-primary);
+}
+
+.advantages-list .icon-box {
+    min-width: 40px;
+    height: 40px;
+    background-color: #FFEBEE;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+.advantage-content h4 {
+    margin: 0 0 5px 0;
+    color: var(--color-dark);
+    font-size: 1.1em;
+}
+
+.advantage-content p {
+    font-size: 0.95em;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.advantage-content strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Marco del Celular */
+.phone-frame {
+    width: 300px;
+    height: auto;
+    border-radius: 40px;
+    border: 12px solid #212121; /* Borde negro estilo marco */
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    background-color: #000;
+}
+
+.phone-frame video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Galería de Pantallas (Abajo) */
+.app-visuals-gallery {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.app-visuals-gallery h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.phone-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.phone-screen {
+    text-align: center;
+}
+
+.phone-screen img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    transition: transform 0.3s;
+}
+
+.phone-screen img:hover {
+    transform: scale(1.05);
+}
+
+.screen-caption {
+    display: block;
+    margin-top: 10px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Responsive Solución */
+@media (max-width: 900px) {
+    .solution-split {
+        flex-direction: column;
+        text-align: center;
+    }
+    .advantages-list li {
+        text-align: left;
+    }
+    .phone-grid {
+        gap: 10px;
+    }
 }
 
 
 /* 3.4. Evidencia Científica (Sección Oscura) */
 .dark-bg .content-row .visual-content [role="img"] {
-    background-color: #607D8B; /* Tono más claro en la sección oscura */
+    background-color: #607D8B; 
 }
 .dark-bg .content-row h3 {
-    color: var(--color-secondary); /* Resalta en verde */
+    color: var(--color-secondary); 
 }
 
 /* 3.6. Videos y Demostraciones */
@@ -492,7 +593,17 @@ nav ul li a:hover {
     text-align: center;
 }
 
-/* Asegura que la imagen de portada ocupe todo el espacio */
+.video-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
 .video-thumbnail img {
     width: 100%;
     height: 100%;
@@ -500,78 +611,47 @@ nav ul li a:hover {
     display: block;
 }
 
-/* Estilo para el iframe de Vimeo cuando aparezca */
 .video-thumbnail iframe {
     width: 100%;
     height: 100%;
     border: none;
 }
 
-.video-thumbnail {
-    width: 100%;
-    /* Quitamos la altura fija (height: 200px) para que se adapte al video */
-    aspect-ratio: 16 / 9; /* Mantiene la proporción estándar de YouTube/Video */
-    background-color: #000; /* Fondo negro por si el video tarda en cargar */
-    border-radius: 10px;
-    margin-bottom: 15px;
-    overflow: hidden; /* Para que las esquinas del video se redondeen */
-    position: relative;
-}
-
-/* Hacemos que el video ocupe todo el espacio de la tarjeta */
-.video-thumbnail video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta el video para llenar el cuadro sin deformarse */
-}
-
-/* --- Estilos para Botón de Play Personalizado --- */
-
-.video-thumbnail {
-    /* Necesario para posicionar el botón encima */
-    position: relative; 
-    cursor: pointer; /* Manita al pasar el mouse */
-}
-
-/* El círculo y el icono en el centro */
+/* Botón Play Overlay */
 .play-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centrado perfecto */
-    
+    transform: translate(-50%, -50%);
     width: 70px;
     height: 70px;
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo negro semitransparente */
-    border-radius: 50%; /* Círculo */
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
     border: 2px solid #fff;
-    pointer-events: none; /* Para que el clic pase directo al contenedor */
+    pointer-events: none;
 }
 
 .play-overlay i {
     color: #fff;
     font-size: 25px;
-    margin-left: 5px; /* Pequeño ajuste visual para el icono play */
+    margin-left: 5px;
 }
 
-/* Efecto al pasar el mouse por encima del video */
 .video-thumbnail:hover .play-overlay {
-    background-color: var(--color-primary); /* Se pone rojo HeartWise */
-    transform: translate(-50%, -50%) scale(1.1); /* Crece un poquito */
+    background-color: var(--color-primary);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* Clase que usaremos con JS para ocultar el botón cuando se reproduzca */
 .video-thumbnail.playing .play-overlay {
-    display: none !important; /* El !important fuerza que se oculte */
-    opacity: 0;
-    pointer-events: none;
+    display: none !important;
 }
 
-/* 3.7. Equipo y Colaboradores */
+
+/* 3.7. Equipo */
 .team-grid {
     display: flex;
     flex-wrap: wrap;
@@ -585,29 +665,24 @@ nav ul li a:hover {
     max-width: 200px;
 }
 
-/* Estilos para las fotos del equipo */
 .photo-placeholder {
     width: 150px;
     height: 150px;
-    background-color: var(--color-light-bg); /* Color de fondo por si la imagen no carga */
-    border-radius: 50%; /* Esto hace el círculo */
+    background-color: var(--color-light-bg);
+    border-radius: 50%;
     margin: 0 auto 10px;
-    /* Importante: oculta las esquinas cuadradas de la imagen */
-    overflow: hidden; 
-    border: 3px solid var(--color-primary); /* Opcional: Borde rojo elegante */
-    
-    /* Para centrar si usas íconos, pero no afecta a la imagen */
+    overflow: hidden;
+    border: 3px solid var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* NUEVA REGLA: Esto hace que la foto se ajuste perfecta al círculo */
 .photo-placeholder img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta la imagen proporcionalmente para llenar el círculo */
-    object-position: center; /* Centra la cara */
+    object-fit: cover;
+    object-position: center;
 }
 
 .team-member h4 {
@@ -629,18 +704,7 @@ nav ul li a:hover {
     flex-wrap: wrap;
 }
 
-.logos-grid [role="img"] {
-    width: 150px;
-    height: 70px;
-    background-color: #CCCCCC;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    font-size: 0.9em;
-}
-
-/* 3.8. Publicaciones y Reconocimientos */
+/* 3.8. Publicaciones */
 .recognition-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -670,7 +734,7 @@ nav ul li a:hover {
     margin-right: 10px;
 }
 
-/* 3.9. Recursos Educativos */
+/* 3.9. Recursos */
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -697,7 +761,7 @@ nav ul li a:hover {
     margin-bottom: 15px;
 }
 
-/* 3.10. Preguntas Frecuentes (FAQ) */
+/* 3.10. FAQ */
 .faq-accordion {
     max-width: 800px;
     margin: 0 auto;
@@ -737,7 +801,7 @@ nav ul li a:hover {
 }
 
 .faq-toggle:checked + label + .faq-content {
-    max-height: 500px; /* Suficiente para el contenido */
+    max-height: 500px;
     padding: 15px;
 }
 
@@ -811,105 +875,87 @@ nav ul li a:hover {
 }
 
 
-/* --- 3.12. Pie de página (footer) --- */
+/* --- 3.12. FOOTER (Estilos Nuevos) --- */
 footer {
     background-color: var(--color-dark);
     color: var(--color-white);
-    padding: 40px 0 20px;
-    text-align: center;
+    padding: 60px 0 20px;
+    text-align: left;
 }
 
-footer a {
-    color: #B0BEC5; /* Gris claro */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-column h4 {
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-links a {
+    display: block;
+    color: #B0BEC5;
     text-decoration: none;
-    margin: 0 15px;
+    margin-bottom: 10px;
     transition: color 0.3s;
 }
 
-footer a:hover {
+.footer-links a:hover {
     color: var(--color-secondary);
-}
-
-.footer-links {
-    margin-bottom: 20px;
-}
-
-.footer-social {
-    margin-bottom: 15px;
+    padding-left: 5px;
 }
 
 .footer-social a {
     font-size: 1.5em;
-    margin: 0 10px;
+    margin-right: 15px;
     color: var(--color-white);
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.footer-social a:hover {
+    color: var(--color-secondary);
+    transform: translateY(-3px);
+}
+
+footer hr {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 20px 0;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
 }
 
 .credits {
-    font-size: 0.9em;
+    font-size: 0.95em;
+    line-height: 1.6;
     color: #B0BEC5;
 }
 
-
-/* --- Adaptabilidad para Móviles (Ajustes Adicionales) --- */
+/* Adaptabilidad Footer Mobile */
 @media (max-width: 768px) {
-    h2 {
-        font-size: 1.8em;
-    }
-
-    .section-padding {
-        padding: 40px 0;
-    }
-
-    .content-row {
+    .footer-content {
         flex-direction: column;
+        text-align: center;
     }
-
-    .content-row.reverse {
-        flex-direction: column-reverse;
+    .footer-links a:hover {
+        padding-left: 0;
     }
-
-    .solution-grid {
-        flex-direction: column;
-    }
-    
-    .solution-grid .app-visuals {
-        margin: 0 auto;
-    }
-
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-grid {
-        gap: 30px;
-    }
-
-    .contact-form, .contact-info {
-        max-width: 100%;
-        min-width: auto;
-    }
-
-    .footer-links a {
-        display: block;
-        margin: 10px 0;
-    }
-}
-
-/* --- Estilo para el Video del Tour de la App --- */
-.phone-video {
-    width: 100%;
-    max-width: 300px; /* Limita el ancho para que parezca un celular */
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Centrar el video */
-    
-    /* Estética de celular */
-    border-radius: 20px; /* Bordes redondeados como un smartphone */
-    border: 8px solid #333; /* Borde oscuro simulando el marco del teléfono */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra para profundidad */
-}
-
-/* Ajuste para que el contenedor del video esté centrado */
-.app-visuals {
-    text-align: center;
 }
